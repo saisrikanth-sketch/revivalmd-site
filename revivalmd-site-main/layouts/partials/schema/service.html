@@ -1,0 +1,21 @@
+{{ if .Params.schema_service }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "url": "{{ .Permalink }}",
+  "procedureType": "{{ with .Params.schema_procedure_type }}{{ . }}{{ else }}NoninvasiveProcedure{{ end }}",
+  "bodyLocation": "{{ with .Params.body_location }}{{ . }}{{ else }}Face and Body{{ end }}"{{ with .Params.preparation }},
+  "preparation": "{{ . }}"{{ end }}{{ with .Params.how_performed }},
+  "howPerformed": "{{ . }}"{{ end }},
+  "status": "https://schema.org/ActiveActionStatus",
+  "provider": {
+    "@type": "MedicalBusiness",
+    "name": "RevivalMD Aesthetic Clinic",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+</script>
+{{ end }}

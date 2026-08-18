@@ -1,0 +1,50 @@
+- name: "Dr. M. Miz. Haque"
+  credentials: "MD, MHA"
+  title: "Founder & Physician"
+  slug: "m-miz-haque-md-mha"
+  url: "/m-miz-haque-md-mha/"
+  image: ""
+  short_bio: "Board-certified internist with 25+ years of clinical experience. Graduate of Ross University School of Medicine with an MHA from George Washington University. Licensed in both New Jersey and New York with affiliations at Bergen New Bridge Medical Center and The Valley Hospital."
+  languages:
+    - English
+    - Hindi
+    - Urdu
+    - Punjabi
+    - Spanish
+    - French
+  education:
+    - "Medical Degree — Ross University School of Medicine"
+    - "Residency — Internal Medicine, Interfaith Medical Center"
+    - "MHA — George Washington University"
+
+- name: "Dr. Haroon Arshad"
+  credentials: "MD, MBA"
+  title: "Co-Founder & Medical Director"
+  slug: "haroon-arshad-md-mba"
+  url: "/haroon-arshad-md-mba/"
+  image: "/images/team/dr-haroon-arshad.jpg"
+  short_bio: "Board-certified family medicine physician and aesthetic medicine specialist with extensive experience across primary care, geriatric medicine, and aesthetic treatments."
+  languages:
+    - English
+    - Urdu
+  education:
+    - "Medical Degree — St. Matthew's University, Belize"
+    - "Residency — Family Medicine, Hackensack Meridian Mountainside Medical Center"
+    - "MBA — Master of Business Administration"
+
+- name: "Sanna Arshad"
+  credentials: "PA-C, MHA"
+  title: "Physician Assistant & Aesthetic Specialist"
+  slug: "sanna-arshad-pa-c-mha"
+  url: "/sanna-arshad-pa-c-mha/"
+  image: "/images/team/sanna-arshad.jpg"
+  short_bio: "Board-certified physician assistant with over 9 years of clinical experience specializing in aesthetic medicine, adult and child neurology, and primary care."
+  languages:
+    - English
+    - Hindi
+    - Urdu
+    - Punjabi
+    - Spanish
+  education:
+    - "PA Studies — St. John's University, Queens, NY"
+    - "MHA — Drexel University"

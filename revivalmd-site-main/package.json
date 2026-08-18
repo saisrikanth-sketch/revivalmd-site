@@ -1,0 +1,15 @@
+{
+  "name": "revivalmd",
+  "version": "1.0.0",
+  "description": "RevivalMD Aesthetic Clinic - Hugo Website",
+  "scripts": {
+    "dev": "hugo server --buildDrafts --disableFastRender",
+    "build": "hugo --minify --environment production",
+    "css:dev": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/output.css --watch",
+    "css:build": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/output.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.16"
+  }
+}

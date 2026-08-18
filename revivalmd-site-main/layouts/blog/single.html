@@ -1,0 +1,86 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+
+<article class="py-12 md:py-20 bg-[#0d0013]">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Post header -->
+    <header class="mb-10">
+      {{ with .Params.categories }}
+      <div class="flex gap-2 mb-4">
+        {{ range . }}
+        <span class="text-gold-400 text-xs tracking-wider uppercase font-medium">{{ . }}</span>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-semibold leading-tight mb-4">
+        {{ .Title }}
+      </h1>
+
+      <div class="flex items-center gap-4 text-sm text-white/40">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        <span>&middot;</span>
+        <span>{{ .ReadingTime }} min read</span>
+        <span>&middot;</span>
+        <span>By <a href="/haroon-arshad-md-mba/" class="text-gold-400/70 hover:text-gold-400 transition-colors">{{ with .Params.author }}{{ . }}{{ else }}Dr. Haroon Arshad, MD{{ end }}</a></span>
+      </div>
+
+      <div class="w-16 h-px bg-gold-400 mt-6"></div>
+    </header>
+
+    <!-- Featured image -->
+    {{ with .Params.image }}
+    <div class="aspect-[16/9] rounded-lg overflow-hidden mb-10">
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-full object-cover" loading="lazy" width="800" height="450">
+    </div>
+    {{ end }}
+
+    <!-- Speakable intro -->
+    {{ with .Description }}
+    <p class="speakable-intro text-lg text-gray-300/70 font-light leading-relaxed mb-8 border-l-2 border-gold-400 pl-5">
+      {{ . }}
+    </p>
+    {{ end }}
+
+    <!-- Post content -->
+    <div class="prose prose-invert prose-lg max-w-none
+                prose-headings:font-heading prose-headings:text-white
+                prose-p:text-gray-200/80
+                prose-li:text-gray-200/80
+                prose-a:text-gold-400 prose-a:no-underline hover:prose-a:text-gold-300
+                prose-strong:text-white
+                prose-blockquote:border-gold-400/40 prose-blockquote:text-gray-300/70
+                prose-h2:text-gold-400
+                prose-img:rounded-lg">
+      {{ .Content }}
+    </div>
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <div class="flex flex-wrap gap-2">
+        {{ range . }}
+        <span class="px-3 py-1 bg-white/[0.05] text-gold-400 text-xs rounded-full border border-gold-400/20">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- CTA -->
+    <div class="mt-12 p-8 bg-purple-950 rounded-lg text-center">
+      <h2 class="font-heading text-2xl text-white font-semibold mb-3">
+        Interested in This Treatment?
+      </h2>
+      <p class="text-white/70 text-sm mb-6">Book a consultation to learn how we can help you achieve your goals.</p>
+      <a href="{{ .Site.Params.booking_url }}"
+         class="inline-flex items-center px-6 py-3 bg-gold-400 text-purple-950 font-semibold text-sm tracking-wider uppercase rounded-sm hover:bg-gold-300 transition-colors">
+        Book Consultation
+      </a>
+    </div>
+  </div>
+</article>
+
+{{ end }}

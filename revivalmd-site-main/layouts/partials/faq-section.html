@@ -1,0 +1,29 @@
+<!-- FAQ Accordion Section -->
+{{ if .Params.faq }}
+<section class="py-16 bg-[#0d0013]">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="font-heading text-3xl md:text-4xl text-white text-center mb-10">
+      Frequently Asked <span class="italic font-normal text-gold-400">Questions</span>
+    </h2>
+
+    <div class="space-y-3">
+      {{ range .Params.faq }}
+      <div class="bg-white/[0.03] rounded-lg border border-gold-400/10 overflow-hidden">
+        <button data-faq-toggle
+                class="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/[0.05] transition-colors">
+          <span class="font-medium text-white pr-4">{{ .question }}</span>
+          <svg data-faq-icon class="w-5 h-5 text-gold-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <div class="px-6 pb-4 text-sm text-gray-300/80 leading-relaxed">
+            {{ .answer }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

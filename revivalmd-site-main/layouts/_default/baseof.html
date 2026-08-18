@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  {{- partial "head.html" . -}}
+</head>
+<body class="bg-[#0d0013] text-gray-200 font-body antialiased">
+  <!-- Google Tag Manager (noscript) -->
+  {{ if .Site.Params.gtm_id }}
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {{ end }}
+  <!-- End Google Tag Manager (noscript) -->
+
+  {{- partial "header.html" . -}}
+  {{- partial "nav-mobile.html" . -}}
+
+  <main id="main-content">
+    {{- block "main" . }}{{ end -}}
+  </main>
+
+  {{- partial "footer.html" . -}}
+  {{- partial "cta-floating.html" . -}}
+
+  <!-- Schema.org JSON-LD -->
+  {{- partial "head-schema.html" . -}}
+
+  <!-- Main JS (deferred) -->
+  {{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+  <script defer src="{{ $js.RelPermalink }}"></script>
+
+  <!-- Tracking Events (dataLayer pushes for GTM) -->
+  {{- partial "tracking-events.html" . -}}
+</body>
+</html>

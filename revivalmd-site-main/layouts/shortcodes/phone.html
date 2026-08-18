@@ -1,0 +1,8 @@
+{{- /*
+  Phone shortcode - outputs the formatted phone number for a given location.
+  Reads from hugo.toml [params] (single source of truth).
+  Usage in markdown: {{< phone "rahway" >}}  or  {{< phone "fairlawn" >}}
+*/ -}}
+{{- $loc := .Get 0 -}}
+{{- if eq $loc "rahway" -}}{{ site.Params.phone_rahway }}{{- end -}}
+{{- if eq $loc "fairlawn" -}}{{ site.Params.phone_fairlawn }}{{- end -}}

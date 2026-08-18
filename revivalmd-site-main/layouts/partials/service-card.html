@@ -1,0 +1,82 @@
+{{/* Service Card Component — pass dict with "service" key */}}
+{{ $s := .service }}
+<a href="{{ $s.url }}" class="service-card group block bg-white/[0.03] border border-white/[0.08] rounded-xl p-6 hover:border-gold-400/30 hover:bg-white/[0.06] transition-all duration-300 relative overflow-hidden{{ if $s.featured }} border-gold-400/20{{ end }}">
+  {{ if $s.featured }}
+  <!-- Corner ribbon -->
+  <div style="position:absolute;top:0;right:0;width:90px;height:90px;overflow:hidden;pointer-events:none;">
+    <div style="position:absolute;top:12px;right:-24px;width:110px;text-align:center;transform:rotate(45deg);background:linear-gradient(135deg,#C9A84C,#8B7232);box-shadow:0 2px 8px rgba(201,168,76,0.3);padding:3px 0;">
+      <span style="color:#1a0026;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">Featured</span>
+    </div>
+  </div>
+  {{ end }}
+  <!-- Icon area -->
+  <div class="w-12 h-12 rounded-lg bg-white/[0.05] flex items-center justify-center mb-4 group-hover:bg-gold-400/10 transition-colors">
+    <svg class="w-6 h-6 text-gold-400/70 group-hover:text-gold-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      {{ if eq $s.icon "syringe" }}
+      {{/* Lucide: syringe */}}
+      <path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/>
+      {{ else if eq $s.icon "laser" }}
+      {{/* Lucide: crosshair — precision laser targeting */}}
+      <circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/>
+      {{ else if eq $s.icon "needles" }}
+      {{/* Lucide: sparkles — skin resurfacing/glow */}}
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+      {{ else if eq $s.icon "rf" }}
+      {{/* Lucide: wifi — radiating RF energy waves */}}
+      <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+      {{ else if eq $s.icon "blood" }}
+      {{/* Lucide: droplet — blood/plasma drop for PRP */}}
+      <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+      {{ else if eq $s.icon "iv" }}
+      {{/* Lucide: flask-conical — IV/drip therapy */}}
+      <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/>
+      {{ else if eq $s.icon "scale" }}
+      {{/* Lucide: scale — weight loss */}}
+      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>
+      {{ else if eq $s.icon "cell" }}
+      {{/* Lucide: atom — cellular/molecular for exosomes */}}
+      <circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/>
+      {{ else if eq $s.icon "facial" }}
+      {{/* Lucide: smile — facial treatment */}}
+      <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      {{ else if eq $s.icon "vitamin" }}
+      {{/* Lucide: pill — vitamin injections */}}
+      <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>
+      {{ else if eq $s.icon "light" }}
+      {{/* Lucide: sun — IPL light pulse */}}
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+      {{ else if eq $s.icon "weight" }}
+      {{/* Lucide: heart-pulse — medical weight loss */}}
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
+      {{ else if eq $s.icon "fillers" }}
+      {{/* Lucide: droplets — dermal fillers / volume */}}
+      <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+      {{ else if eq $s.icon "rocket" }}
+      {{/* Lucide: rocket — TRT / vitality / performance */}}
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+      {{ else if eq $s.icon "activity" }}
+      {{/* Lucide: activity — RF waveform/energy */}}
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      {{ else }}
+      {{/* Default: star/sparkle */}}
+      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+      {{ end }}
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <h3 class="font-heading text-lg font-semibold text-white mb-2 group-hover:text-gold-400 transition-colors">
+    {{ $s.name }}
+  </h3>
+  <p class="text-sm text-gray-300 leading-relaxed">
+    {{ $s.short_description }}
+  </p>
+
+  <!-- Arrow -->
+  <div class="mt-4 flex items-center text-gold-400 text-sm font-medium">
+    <span>Learn More</span>
+    <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </div>
+</a>

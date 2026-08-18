@@ -1,0 +1,194 @@
+<!-- Full-screen mobile menu -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 lg:hidden" style="background:#0d0013;" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="flex flex-col h-full overflow-y-auto">
+
+    <!-- Header row with logo + close -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
+      <a href="/" aria-label="RevivalMD Home">
+        <picture>
+          <source srcset="/images/logo-header.webp" type="image/webp">
+          <img src="/images/logo-header-sm.png" alt="RevivalMD" class="h-12 w-auto" width="132" height="128">
+        </picture>
+      </a>
+      <button id="mobile-close" type="button" class="p-2 text-white/60 hover:text-gold-400 transition-colors" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-4 py-4 space-y-1" aria-label="Mobile navigation">
+
+      {{ range .Site.Menus.main }}
+      {{ if eq .Name "Aesthetics" }}
+      <!-- Expandable services accordion -->
+      <div>
+        <button id="mobile-aesthetics-btn"
+                onclick="(function(btn){var panel=document.getElementById('mobile-aesthetics-panel');var icon=document.getElementById('mobile-aesthetics-icon');var open=panel.classList.contains('hidden');panel.classList.toggle('hidden',!open);icon.style.transform=open?'rotate(180deg)':'rotate(0deg)';})(this)"
+                class="w-full flex items-center justify-between py-3.5 px-4 text-base font-medium text-white/90 hover:text-gold-400 rounded-xl hover:bg-white/[0.04] transition-all duration-200">
+          <span>Aesthetics</span>
+          <svg id="mobile-aesthetics-icon" class="w-4 h-4 text-white/40 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+        <!-- Services panel — 2-col grid on wider phones -->
+        <div id="mobile-aesthetics-panel" class="hidden px-2 pb-4 pt-2">
+
+          <!-- Injectables -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Injectables</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/botox-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">Botox / Letybo</a>
+            </div>
+          </div>
+
+          <!-- Skin Rejuvenation -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Skin Rejuvenation</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/microneedling-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">Microneedling</a>
+              <a href="/rf-microneedling-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">RF Microneedling</a>
+              <a href="/rf-skin-tightening-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">RF Therapy</a>
+            </div>
+          </div>
+
+          <!-- Laser -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Laser</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/laser-hair-removal-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">Laser Hair Removal</a>
+            </div>
+          </div>
+
+          <!-- Regenerative -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Regenerative</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/prp-facial-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">PRP Injections</a>
+              <a href="/prp-biofiller-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">PRP Biofiller</a>
+              <a href="/exosome-therapy-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">Exosome Therapy</a>
+            </div>
+          </div>
+
+          <!-- Wellness -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Wellness</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/iv-therapy-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">IV Drips</a>
+              <a href="/testosterone-replacement-therapy-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">TRT (Men's Health)</a>
+            </div>
+          </div>
+
+          <!-- Weight Loss -->
+          <div class="mb-4">
+            <div class="flex items-center gap-2 px-2 mb-2">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+              <span class="text-gold-400 text-[10px] font-semibold tracking-[0.15em] uppercase">Weight Loss</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1 pl-2">
+              <a href="/semaglutide-rahway-nj/" class="py-2 px-3 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-lg transition-colors">GLP-1 / Obesity</a>
+            </div>
+          </div>
+
+          <a href="/aesthetics/" class="flex items-center justify-center gap-2 mt-2 py-2.5 text-sm text-gold-400 font-semibold border border-gold-400/20 rounded-xl hover:bg-gold-400/[0.06] transition-colors">
+            View All Services
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+      {{ else if eq .Name "Patient Resources" }}
+      <!-- Patient Resources accordion -->
+      <div>
+        <button id="mobile-patres-btn"
+                onclick="(function(btn){var panel=document.getElementById('mobile-patres-panel');var icon=document.getElementById('mobile-patres-icon');var open=panel.classList.contains('hidden');panel.classList.toggle('hidden',!open);icon.style.transform=open?'rotate(180deg)':'rotate(0deg)';})(this)"
+                class="w-full flex items-center justify-between py-3.5 px-4 text-base font-medium text-white/90 hover:text-gold-400 rounded-xl hover:bg-white/[0.04] transition-all duration-200">
+          <span>Patient Resources</span>
+          <svg id="mobile-patres-icon" class="w-4 h-4 text-white/40 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="mobile-patres-panel" class="hidden px-2 pb-3 pt-1">
+          <a href="https://www.carecredit.com/go/684NKF/?dtc=DS5X&sitecode=CCCABDS5X" target="_blank" rel="noopener" class="flex items-center gap-3 py-3 px-4 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-xl transition-colors">
+            <svg class="w-4 h-4 shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/></svg>
+            Payment Plans
+          </a>
+          <a href="/forms/" class="flex items-center gap-3 py-3 px-4 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-xl transition-colors">
+            <svg class="w-4 h-4 shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+            Forms
+          </a>
+          <a href="/testimonials/" class="flex items-center gap-3 py-3 px-4 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-xl transition-colors">
+            <svg class="w-4 h-4 shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+            Testimonials
+          </a>
+          <a href="/blog/" class="flex items-center gap-3 py-3 px-4 text-sm text-white/70 hover:text-gold-400 hover:bg-white/[0.04] rounded-xl transition-colors">
+            <svg class="w-4 h-4 shrink-0 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"/></svg>
+            Blog
+          </a>
+        </div>
+      </div>
+      {{ else }}
+      <a href="{{ .URL }}"
+         class="flex items-center py-3.5 px-4 text-base font-medium text-white/90 hover:text-gold-400 rounded-xl hover:bg-white/[0.04] transition-all duration-200">
+        {{ .Name }}
+      </a>
+      {{ end }}
+      {{ end }}
+    </nav>
+
+    <!-- Bottom: locations + CTA -->
+    <div class="px-6 pb-8 border-t border-white/[0.06] pt-6 space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <p class="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">Rahway</p>
+          <a href="tel:{{ .Site.Params.phone_rahway }}" class="text-white/70 text-sm hover:text-gold-300 block">{{ .Site.Params.phone_rahway }}</a>
+        </div>
+        <div>
+          <p class="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">Fair Lawn</p>
+          <a href="tel:{{ .Site.Params.phone_fairlawn }}" class="text-white/70 text-sm hover:text-gold-300 block">{{ .Site.Params.phone_fairlawn }}</a>
+        </div>
+      </div>
+      <a href="{{ .Site.Params.booking_url }}"
+         class="block w-full text-center px-6 py-3.5 bg-gold-400 text-purple-900 font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-gold-300 transition-colors">
+        Book Your Consultation
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Wire up mobile close button
+document.addEventListener('DOMContentLoaded', function() {
+  var closeBtn = document.getElementById('mobile-close');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var menuToggle = document.getElementById('menu-toggle');
+  var iconOpen = document.getElementById('menu-icon-open');
+  var iconClose = document.getElementById('menu-icon-close');
+  if (closeBtn && mobileMenu) {
+    closeBtn.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      if (iconOpen) iconOpen.classList.remove('hidden');
+      if (iconClose) iconClose.classList.add('hidden');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  }
+});
+</script>

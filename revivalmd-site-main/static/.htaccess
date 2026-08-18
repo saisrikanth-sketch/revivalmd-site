@@ -1,0 +1,96 @@
+# RevivalMD — Apache Configuration for GoDaddy Shared Hosting
+
+# Ensure index.html is served for directories
+DirectoryIndex index.html
+
+# www to non-www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.revivalmd\.com [NC]
+RewriteRule ^(.*)$ https://revivalmd.com/$1 [R=301,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Trailing slash enforcement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ /$1/ [L,R=301]
+
+# Enable compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://app.cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://app.cal.com https://www.google.com; connect-src 'self' https://app.cal.com; form-action 'self' https://formspree.io;"
+</IfModule>
+
+# Custom 404
+ErrorDocument 404 /404.html
+
+# ============================================
+# 301 Redirects — Primary Care pages to homepage
+# ============================================
+RewriteRule ^primary-care/?$ / [R=301,L]
+RewriteRule ^direct-primary-care-rahway-fair-lawn/?$ / [R=301,L]
+RewriteRule ^direct-primary-care-rahway-fair-lawn-2/?$ / [R=301,L]
+RewriteRule ^sick-visits/?$ / [R=301,L]
+RewriteRule ^covid-19/?$ / [R=301,L]
+RewriteRule ^womens-health/?$ / [R=301,L]
+RewriteRule ^in-house-lab/?$ / [R=301,L]
+RewriteRule ^primary-care-aesthetics/?$ / [R=301,L]
+RewriteRule ^services/?$ /aesthetics/ [R=301,L]
+RewriteRule ^test/?$ / [R=301,L]
+
+# Primary care blog posts redirect to blog
+RewriteRule ^why-is-it-important-to-have-a-primary-care-provider/?$ /blog/ [R=301,L]
+RewriteRule ^urinary-tract-infections-causes-symptoms/?$ /blog/ [R=301,L]
+RewriteRule ^simple-rash-or-something-more/?$ /blog/ [R=301,L]
+RewriteRule ^essential-check-ups-screenings-womens-health/?$ /blog/ [R=301,L]
+RewriteRule ^common-gynecological-issues/?$ /blog/ [R=301,L]
+RewriteRule ^notice-to-all-patients-of-arshad-medical-service-p-c/?$ /blog/ [R=301,L]
+RewriteRule ^treating-minor-injuries-splints-lacerations-on-site-care/?$ /blog/ [R=301,L]
+RewriteRule ^laboratory-testing-fast-accurate-results-matter/?$ /blog/ [R=301,L]
+RewriteRule ^fast-confidential-std-hiv-uti-tb-testing/?$ /blog/ [R=301,L]
+RewriteRule ^immunization-essentials-flu-shots-boosters-travel-vaccines/?$ /blog/ [R=301,L]
+RewriteRule ^opioid-dependence-help-outpatient-therapy/?$ /blog/ [R=301,L]
+RewriteRule ^physical-screenings-for-work-school-what-you-need-to-know/?$ /blog/ [R=301,L]
+RewriteRule ^injury-prevention-tips-fall/?$ /blog/ [R=301,L]
+RewriteRule ^flu-vaccine-timing-preventive-care/?$ /blog/ [R=301,L]
+RewriteRule ^year-end-health-check-up-2026-goals/?$ /blog/ [R=301,L]
+RewriteRule ^personalized-safety-centered-prescriptive-services/?$ /blog/ [R=301,L]
+RewriteRule ^heart-health-month-preventive-screenings-revivalmd/?$ /blog/ [R=301,L]
+RewriteRule ^new-year-health-reset-telehealth-tips/?$ /blog/ [R=301,L]
+
+# Primary care local SEO pages redirect to homepage
+RewriteRule ^best-direct-primary-care-(service|clinic)-near-.*-nj/?$ / [R=301,L]
+RewriteRule ^best-primary-care-(service|clinics-medical-aesthetic-services)-near-.*-nj/?$ / [R=301,L]
+RewriteRule ^best-in-house-lab-near-.*-nj/?$ / [R=301,L]
+RewriteRule ^best-womens-health-clinic-near-.*-nj/?$ / [R=301,L]

@@ -1,0 +1,44 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range .Data.Pages }}
+  {{- if not .Params.noindex }}
+  {{- $priority := "0.5" }}
+  {{- if .IsHome }}{{ $priority = "1.0" }}
+  {{- else if eq .Type "services" }}{{ $priority = "0.9" }}
+  {{- else if eq .Type "local" }}{{ $priority = "0.7" }}
+  {{- else if eq .Type "blog" }}{{ $priority = "0.6" }}
+  {{- end }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- if not .Lastmod.IsZero }}
+    <lastmod>{{ .Lastmod.Format "2006-01-02" }}</lastmod>
+    {{- end }}
+    <changefreq>{{ with .Sitemap.ChangeFreq }}{{ . }}{{ else }}weekly{{ end }}</changefreq>
+    <priority>{{ $priority }}</priority>
+    {{- /* Hero image (service pages) */}}
+    {{- with .Params.hero_image }}
+    <image:image>
+      <image:loc>{{ . | absURL }}</image:loc>
+      <image:title>{{ $.Title }}</image:title>
+    </image:image>
+    {{- end }}
+    {{- /* Featured image (blog posts) */}}
+    {{- with .Params.image }}
+    <image:image>
+      <image:loc>{{ . | absURL }}</image:loc>
+      <image:title>{{ $.Title }}</image:title>
+    </image:image>
+    {{- end }}
+    {{- /* OG fallback for homepage and service pages without hero image */}}
+    {{- if and (not .Params.hero_image) (not .Params.image) (or .IsHome (eq .Type "services")) }}
+    <image:image>
+      <image:loc>{{ $.Site.Params.og_image | absURL }}</image:loc>
+      <image:title>RevivalMD Aesthetic Clinic</image:title>
+    </image:image>
+    {{- end }}
+  </url>
+  {{- end }}
+  {{- end }}
+</urlset>

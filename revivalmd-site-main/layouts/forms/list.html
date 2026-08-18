@@ -1,0 +1,92 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="relative overflow-hidden" style="background:#0d0013;padding:5rem 0 4rem;">
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(59,0,84,0.7) 0%,rgba(13,0,19,1) 65%)"></div>
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p style="color:#C9A84C;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem;">Patient Resources</p>
+    <h1 class="font-heading text-white font-semibold" style="font-size:clamp(2rem,5vw,3rem);margin:0 0 1rem;">Patient <em class="font-normal" style="color:#C9A84C;">Forms</em></h1>
+    <p style="color:rgba(255,255,255,0.55);font-size:1rem;max-width:520px;margin:0 auto;">Click any form to open it. Complete and sign digitally via Adobe — no printing required.</p>
+  </div>
+</section>
+
+<!-- English Forms -->
+<section style="background:#0d0013;padding:4rem 0;">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div style="margin-bottom:2.5rem;">
+      <p style="color:#C9A84C;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.5rem;">English</p>
+      <h2 class="font-heading text-white font-semibold" style="font-size:1.6rem;margin:0 0 0.4rem;">English <em class="font-normal" style="color:#C9A84C;">Forms</em></h2>
+      <p style="color:rgba(255,255,255,0.35);font-size:0.85rem;margin:0;">Click on a form to open and complete it digitally.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.75rem;">
+
+      {{ $forms := slice
+        (dict "name" "Patient Intake Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhD6TGFpeTVUcUc-74Jwf9dn_Qhd1THg5SvI33Zjy_ptCkuEyQmMlfmhtivA7wXYz6s*")
+        (dict "name" "Botox Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC96I7x5lF2lZWN4ecg26wyyIt7UzDR634FX-7HfH2J3diIrStNDz5AdHCruvwjDo8*")
+        (dict "name" "Dermal Filler Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAHP2ZStV_FUyMKusv-bnslCieewDQzlY0zXMhjJcv3BIQEihqCQ6mCBZrI5Drqp0Q*")
+        (dict "name" "Microneedling Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBENavEZTwn4PkzrKB1nyBE9dVgWtb2EaHgLjl7Cbu8Kxltt2lPw7rozqpIDBwOBVE*")
+        (dict "name" "RF Microneedling Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBllq2Td8KtUrOv9VpeYuk6NvgqG8_p7MlJH_QbJ__daTSaeEGrrRNmzR-gsO3WtLE*")
+        (dict "name" "Aquafirme XS Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDVrAv254fDzLBd6pPa1GUcnxrsrDi4MS9wLig5ftx_YDVbUjC9qgCQAH1R4KKcR0w*")
+        (dict "name" "Laser / IPL Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDILeKwXu3Th9AA-Uytw24i9veZtkDVNejW4OqngUk7FUem5BilyIP2mC0KP_9O2n0*")
+        (dict "name" "Platelet Rich Plasma (PRP) Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAnkeRPYXIWZ5e8gO9koEbiaOuDnnn6EgL8zlxnoyPJO1T_cAGtFv5EJxPGWL6KtDQ*")
+        (dict "name" "IV Therapy Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhCXhW_I_LkQjKTESwtnpdb2SArsuN6aRtYdayx_JCrwt5kuejff3KAKMgGZMmQDldE*")
+        (dict "name" "Semaglutide Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhB-giezmfcB8li80EYMZeMtp88tnZpXttUjRVzokKOMGr0sJb54fr3R3SalOGWEehM*")
+        (dict "name" "Vitamin B12 Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDHE-wBupv5b2OS6V_USE1FnwMAHDadY4Ch8i5P3Jj8QUPTkHPJ3ftp8bJSd8TZr94*")
+        (dict "name" "Glutathione Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhCfC4wv7ViuHle_htyQqeFYL_gj0mN6iEAYUSHBdS0Vsdhl00sYJpiB1_QwJtuzqnU*")
+        (dict "name" "High-Intensity Focused Ultrasound (HIFU) Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhCgvPOE0243XZMROtcBHJpq6IX7B1uK6IHTD6Hik5CJeRUsL5d_1gvw8ryuLrL1y80*")
+        (dict "name" "VIP Membership Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDK6pnj8hs4T-3Zhv-qgxSlSprvZrLBXlcwrinUC-MikIwcU-HK3tCOYwNZS7AeQwA*")
+        (dict "name" "Rahway Laser Hair Removal Membership Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDLofft0_LDPWbQDjtIT34EYrUKd3QzG2dp8p2J3EWqhW5f_CD5RxYkhY70NUjXiwc*")
+        (dict "name" "Full Body Laser Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDejgzFt-A86raqYiOZN75PhPoof6uojoLRs7v78XPNCXZpgAcBAF0M_otgPrfquwY*")
+        (dict "name" "Rahway Membership Face & Neck Laser Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhC-HWXrRBIkXWCkIUVHi6BO9KESHzoKFWs5zSIsjjENLeZkO94yW90uk19jA-Amd5o*")
+        (dict "name" "Fair Lawn Laser Face & Neck Consent Form" "url" "https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhDKOhDs5EZrYyBm7TGcm3x0DriQ-lSoS3BZvDWtPThLmfZhEguXkRh14TnBP-5ssqc*")
+        (dict "name" "PRF Consent Form" "url" "/forms/prf-consent-form.pdf")
+      }}
+
+      {{ range $forms }}
+      <a href="{{ .url }}" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:0.75rem;text-decoration:none;transition:all 0.2s;"
+         onmouseover="this.style.borderColor='rgba(201,168,76,0.3)';this.style.background='rgba(201,168,76,0.04)'"
+         onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.025)'">
+        <svg style="flex-shrink:0;opacity:0.5;" width="16" height="16" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+        </svg>
+        <span style="color:rgba(255,255,255,0.8);font-size:0.875rem;line-height:1.4;">{{ .name }}</span>
+        <svg style="flex-shrink:0;margin-left:auto;opacity:0.3;" width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+        </svg>
+      </a>
+      {{ end }}
+
+    </div>
+  </div>
+</section>
+
+<!-- Spanish Forms -->
+<section style="background:#080010;padding:4rem 0;border-top:1px solid rgba(255,255,255,0.04);">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div style="margin-bottom:2rem;">
+      <p style="color:#C9A84C;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.5rem;">Español</p>
+      <h2 class="font-heading text-white font-semibold" style="font-size:1.6rem;margin:0;">Spanish <em class="font-normal" style="color:#C9A84C;">Forms</em></h2>
+    </div>
+
+    <a href="https://na4.documents.adobe.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhBCdS4liJxC9UbBSJFaB7Xt5RjRTAc4f1ZsuQLKeHNtx_SZo2P8M_g7IZPcSQNT83A*"
+       target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:12px;padding:1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:0.75rem;text-decoration:none;transition:all 0.2s;"
+       onmouseover="this.style.borderColor='rgba(201,168,76,0.3)';this.style.background='rgba(201,168,76,0.04)'"
+       onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.025)'">
+      <svg style="flex-shrink:0;opacity:0.5;" width="16" height="16" fill="none" stroke="#C9A84C" viewBox="0 0 24 24" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+      </svg>
+      <span style="color:rgba(255,255,255,0.8);font-size:0.875rem;">Laser / IPL Consent Form (Spanish)</span>
+      <svg style="flex-shrink:0;margin-left:auto;opacity:0.3;" width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/>
+      </svg>
+    </a>
+
+  </div>
+</section>
+
+{{ end }}

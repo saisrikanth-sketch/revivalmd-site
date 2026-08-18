@@ -1,0 +1,24 @@
+{{ if .Params.steps }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "What to Expect During {{ .Title }}",
+  "description": "{{ .Description }}",
+  "step": [
+    {{ range $i, $step := .Params.steps }}{{ if $i }},{{ end }}
+    {
+      "@type": "HowToStep",
+      "position": {{ add $i 1 }},
+      "name": "{{ $step.title }}",
+      "text": "{{ $step.desc }}"
+    }{{ end }}
+  ],
+  "provider": {
+    "@type": "MedicalBusiness",
+    "name": "RevivalMD Aesthetic Clinic",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+</script>
+{{ end }}

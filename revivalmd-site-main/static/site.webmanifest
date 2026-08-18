@@ -1,0 +1,14 @@
+{
+  "name": "RevivalMD Aesthetic Clinic",
+  "short_name": "RevivalMD",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "theme_color": "#3B0054",
+  "background_color": "#FFFFFF",
+  "display": "standalone"
+}

@@ -1,0 +1,166 @@
+baseURL = "https://revivalmd.com/"
+languageCode = "en-us"
+title = "Medical Spa in Rahway & Fair Lawn NJ | RevivalMD Aesthetic Clinic"
+enableRobotsTXT = false
+enableGitInfo = false
+copyright = "RevivalMD Aesthetic Clinic. All rights reserved."
+
+[pagination]
+  pagerSize = 21
+
+[build]
+  writeStats = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[permalinks]
+  [permalinks.page]
+    blog = "/:slug/"
+
+  [permalinks.term]
+    categories = "/category/:slug/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[minify]
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      keepCSS2 = true
+
+[imaging]
+  quality = 80
+  resampleFilter = "Lanczos"
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true
+
+[params]
+  description = "RevivalMD Aesthetic Clinic offers premium aesthetic treatments including Botox, laser hair removal, microneedling, PRP, and more at our Rahway and Fair Lawn, NJ locations."
+  tagline = "Revive Your Beauty. Renew Your Confidence."
+  # SINGLE SOURCE OF TRUTH for phone numbers.
+  # Edit here and the whole site updates (header, footer, schema, contact page, blog posts via shortcodes).
+  phone_rahway = "(848) 304-3063"
+  phone_fairlawn = "(856) 210-4067"
+  address_rahway = "1531 Irving St, Rahway, NJ 07065"
+  address_fairlawn = "11-19 River Rd, Fair Lawn, NJ 07410"
+  booking_url = "/book-now/"
+  og_image = "/images/og-default.jpg"
+  google_maps_rahway = "https://maps.google.com/?q=1531+Irving+St+Rahway+NJ+07065"
+  google_maps_fairlawn = "https://maps.google.com/?q=11-19+River+Rd+Fair+Lawn+NJ+07410"
+  hours_weekdays = "Mon – Fri: 9am – 6pm"
+  hours_saturday = "Sat: 9am – 3pm"
+  hours_sunday = "Sun: Closed"
+  instagram_url = "https://www.instagram.com/revivalmd_nj/"
+  facebook_url = ""
+  review_rating = "4.8"
+  review_count = "143"
+
+  # Analytics & Tracking (leave blank to disable)
+  gtm_id = ""              # Google Tag Manager — e.g. "GTM-XXXXXXX"
+  gsc_verification = ""    # Google Search Console meta tag value
+  meta_pixel_id = ""       # Meta/Facebook Pixel ID — e.g. "1234567890123"
+  clarity_id = ""          # Microsoft Clarity project ID
+
+  [params.colors]
+    purple = "#3B0054"
+    gold = "#C9A84C"
+    white = "#FFFFFF"
+
+  [params.author]
+    name = "RevivalMD Aesthetic Clinic"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menus.main]]
+    name = "Aesthetics"
+    url = "/aesthetics/"
+    weight = 2
+
+  [[menus.main]]
+    name = "Injectables"
+    url = "/injectables/"
+    parent = "Aesthetics"
+    weight = 1
+
+  [[menus.main]]
+    name = "Skin Treatments"
+    url = "/skin-treatments/"
+    parent = "Aesthetics"
+    weight = 2
+
+  [[menus.main]]
+    name = "Body Treatments"
+    url = "/body-treatments/"
+    parent = "Aesthetics"
+    weight = 3
+
+  [[menus.main]]
+    name = "Weight Loss"
+    url = "/weight-loss/"
+    parent = "Aesthetics"
+    weight = 4
+
+  [[menus.main]]
+    name = "Patient Resources"
+    url = "#"
+    weight = 3
+
+  [[menus.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 4
+
+  [[menus.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 5
+
+  [[menus.footer]]
+    name = "Privacy Policy"
+    url = "/privacy-policy/"
+    weight = 1
+
+  [[menus.footer]]
+    name = "Terms of Service"
+    url = "/terms-of-service/"
+    weight = 2
+
+  [[menus.footer]]
+    name = "Testimonials"
+    url = "/testimonials/"
+    weight = 3
+
+  [[menus.footer]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 4
+
+  [[menus.footer]]
+    name = "Membership"
+    url = "/membership/"
+    weight = 5

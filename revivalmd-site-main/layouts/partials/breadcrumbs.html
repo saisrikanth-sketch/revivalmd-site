@@ -1,0 +1,24 @@
+<!-- Visible Breadcrumb Navigation — matches BreadcrumbList JSON-LD schema -->
+{{ if not .IsHome }}
+<nav aria-label="Breadcrumb" style="background:#0d0013;border-bottom:1px solid rgba(255,255,255,0.04);padding:0.6rem 0;">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <ol style="display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem;list-style:none;margin:0;padding:0;">
+      <li>
+        <a href="/" style="color:rgba(201,168,76,0.55);font-size:0.7rem;text-decoration:none;letter-spacing:0.03em;">Home</a>
+      </li>
+      {{ range .Ancestors.Reverse }}
+      {{ if not .IsHome }}
+      <li style="display:flex;align-items:center;gap:0.25rem;">
+        <span style="color:rgba(255,255,255,0.2);font-size:0.65rem;">›</span>
+        <a href="{{ .Permalink }}" style="color:rgba(201,168,76,0.55);font-size:0.7rem;text-decoration:none;letter-spacing:0.03em;">{{ .Title }}</a>
+      </li>
+      {{ end }}
+      {{ end }}
+      <li style="display:flex;align-items:center;gap:0.25rem;">
+        <span style="color:rgba(255,255,255,0.2);font-size:0.65rem;">›</span>
+        <span style="color:rgba(255,255,255,0.45);font-size:0.7rem;letter-spacing:0.03em;">{{ .Title }}</span>
+      </li>
+    </ol>
+  </div>
+</nav>
+{{ end }}

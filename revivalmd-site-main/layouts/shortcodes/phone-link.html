@@ -1,0 +1,11 @@
+{{- /*
+  Phone-link shortcode - outputs a clickable tel: anchor for a given location.
+  Reads from hugo.toml [params] (single source of truth).
+  Usage in markdown: {{< phone-link "rahway" >}}  or  {{< phone-link "fairlawn" >}}
+*/ -}}
+{{- $loc := .Get 0 -}}
+{{- $phone := "" -}}
+{{- if eq $loc "rahway" -}}{{- $phone = site.Params.phone_rahway -}}{{- end -}}
+{{- if eq $loc "fairlawn" -}}{{- $phone = site.Params.phone_fairlawn -}}{{- end -}}
+{{- $tel := replaceRE "[^0-9]" "" $phone -}}
+<a href="tel:{{ $tel }}">{{ $phone }}</a>

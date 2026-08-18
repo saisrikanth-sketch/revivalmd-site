@@ -1,0 +1,59 @@
+- name: "Ruthann C."
+  service: "Botox Injections"
+  rating: 5
+  text: "Sanna Arshad is the absolute best doc ever. Her soft, subtle touch resulted in the most amazing painless results. I've had injections for years and always bruise, bleed, and experience a lot of pain — not this time! She was the most gentle doc I've ever been to. We discussed my goals and she really, genuinely listened. She is the most honest, down to earth, caring, compassionate, knowledgeable doc I've ever met. I received the best service, best results and the best pricing I have ever gotten in over 20 years getting botox injections."
+
+- name: "Elda I."
+  service: "Patient Care"
+  rating: 5
+  text: "I was able to schedule an appointment quickly and everyone — reception, nurses, physician assistant and the doctor — were wonderful. The patient was my mother, late stage Alzheimer's, 80-something. The nurses had a lovely bedside manner and were able to get her vitals with very little fuss. I never felt rushed and the nurses, PA and doctor took their time. It was very refreshing feeling like we were given undivided, undistracted attention. I would highly recommend this practice."
+
+- name: "Jazmin G."
+  service: "Aesthetics"
+  rating: 5
+  text: "Amazing — first time coming here and all I can say is how comfortable I felt. Everyone here is so nice and I can't think of going anywhere else now except here!"
+
+- name: "Julie E."
+  service: "Patient Care"
+  rating: 5
+  text: "Very kind, considerate, and attentive to your needs as a patient. The staff is amazing and always make me feel like a priority. I absolutely recommend this practice to people who appreciate good bedside manner and a respectful, polite staff."
+
+- name: "Jose P."
+  service: "Primary Care"
+  rating: 5
+  text: "Extremely helpful — they care about you and take time out to answer your questions. Dr. Haroon really cares. Highly recommend."
+
+- name: "Jeffrey S."
+  service: "Aesthetics"
+  rating: 5
+  text: "Wonderful experience! Beautiful facility and quick service. Would definitely recommend."
+
+- name: "Malika S."
+  service: "New Patient"
+  rating: 5
+  text: "Warm and caring! I felt very comfortable as a new patient."
+
+- name: "Saige W."
+  service: "Aesthetics"
+  rating: 5
+  text: "Very comfortable atmosphere. Staff was kind and helpful."
+
+- name: "Blanca I R."
+  service: "Patient Care"
+  rating: 5
+  text: "Great doctor. She really listens and cares about her patients."
+
+- name: "Arelis D."
+  service: "Patient Care"
+  rating: 5
+  text: "Everyone is very nice!!! I will recommend. Thank you all!"
+
+- name: "Richard M."
+  service: "Patient Care"
+  rating: 5
+  text: "Above and beyond."
+
+- name: "Michelle R."
+  service: "Patient Care"
+  rating: 5
+  text: "The receptionist and doctor were both very professional and courteous."

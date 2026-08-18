@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="RevivalMD">
+  <title>RevivalMD</title>
+  <defs>
+    <linearGradient id="ig" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#A08338"/>
+      <stop offset="30%" stop-color="#C9A84C"/>
+      <stop offset="55%" stop-color="#E8D5A0"/>
+      <stop offset="75%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#96792E"/>
+    </linearGradient>
+    <linearGradient id="ifp" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A0E4E"/>
+      <stop offset="30%" stop-color="#3B0054"/>
+      <stop offset="70%" stop-color="#2E0040"/>
+      <stop offset="100%" stop-color="#220030"/>
+    </linearGradient>
+    <linearGradient id="ifl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A1870" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3B0054" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer purple ring -->
+  <path d="M 370,88 A 210,210 0 1,1 340,78"
+        fill="none" stroke="#4A1060" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Inner gold ring -->
+  <path d="M 105,335 A 195,195 0 1,0 355,100"
+        fill="none" stroke="url(#ig)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 105,335 C 90,355 85,360 80,362"
+        fill="none" stroke="url(#ig)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- White interior -->
+  <circle cx="260" cy="265" r="188" fill="#FFFFFF"/>
+
+  <!-- Feather -->
+  <g>
+    <path d="M 418,52 C 395,75 360,115 338,152 C 315,190 300,225 290,260 C 285,278 282,290 280,298 C 295,282 315,255 330,230 C 350,198 375,158 395,125 C 410,100 425,72 418,52Z"
+          fill="url(#ifp)"/>
+    <path d="M 418,52 C 430,68 438,95 435,125 C 432,155 420,190 400,222 C 380,255 355,282 330,300 C 318,308 305,312 295,313 C 290,305 285,298 280,298 C 300,278 325,248 348,215 C 370,182 392,142 410,105 C 420,82 422,65 418,52Z"
+          fill="url(#ifp)" opacity="0.85"/>
+    <path d="M 418,52 C 430,68 438,95 435,125 C 432,155 420,190 400,222 C 380,255 355,282 330,300 C 318,308 305,312 295,313 C 290,305 285,298 280,298 C 300,278 325,248 348,215 C 370,182 392,142 410,105 C 420,82 422,65 418,52Z"
+          fill="url(#ifl)"/>
+    <path d="M 418,52 C 410,80 390,130 368,175 C 345,222 320,262 295,295 C 288,304 283,308 280,310"
+          fill="none" stroke="url(#ig)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 410,72 C 398,85 382,102 370,112" fill="none" stroke="url(#ig)" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 400,100 C 385,115 368,132 352,148" fill="none" stroke="url(#ig)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 388,132 C 372,148 352,168 338,182" fill="none" stroke="url(#ig)" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 375,162 C 358,178 338,200 325,215" fill="none" stroke="url(#ig)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 410,72 C 420,82 428,98 432,110" fill="none" stroke="url(#ig)" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 400,100 C 412,110 422,128 428,142" fill="none" stroke="url(#ig)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 388,132 C 402,142 415,162 420,178" fill="none" stroke="url(#ig)" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 375,162 C 390,172 405,192 410,210" fill="none" stroke="url(#ig)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  </g>
+</svg>

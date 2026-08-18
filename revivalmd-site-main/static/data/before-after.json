@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ba_demo001",
+    "service": "botox",
+    "before": "/images/before-after/botox/before-demo1.jpg",
+    "after": "/images/before-after/botox/after-demo1.jpg",
+    "caption": "Forehead lines & crow's feet · 2 sessions",
+    "date": "2026-02-14"
+  },
+  {
+    "id": "ba_demo002",
+    "service": "botox",
+    "before": "/images/before-after/botox/before-demo2.jpg",
+    "after": "/images/before-after/botox/after-demo2.jpg",
+    "caption": "Frown lines & brow lift · 1 session",
+    "date": "2026-03-01"
+  },
+  {
+    "id": "ba_demo003",
+    "service": "microneedling",
+    "before": "/images/before-after/microneedling/before-demo1.jpg",
+    "after": "/images/before-after/microneedling/after-demo1.jpg",
+    "caption": "Texture & pore refinement · 3 sessions",
+    "date": "2026-03-10"
+  }
+]

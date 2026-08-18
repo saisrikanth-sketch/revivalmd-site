@@ -1,0 +1,55 @@
+<!--
+  Tracking Events — dataLayer push snippets for GA4 via GTM.
+  Include this partial near </body> when .Site.Params.gtm_id is set.
+
+  GTM Trigger setup required:
+    • Phone clicks:   Click trigger, element matches "[data-track='phone-click']"
+    • Book Now:       Click trigger, element matches "[data-track='book-now']"
+    • Cal.com:        Custom Event "bookingSuccessfulV2" (fired natively by Cal.com GTM app)
+
+  data-track attribute reference:
+    data-track="phone-click"       → GA4 event: phone_call_click (conversion)
+    data-track="book-now"          → GA4 event: generate_lead (conversion)
+    data-track="booking-confirmed" → GA4 event: booking_confirmed (fired by Cal.com)
+
+  In GTM, create one GA4 Event tag per event name above, fired by the matching trigger.
+  GA4 recommended conversion events: generate_lead, schedule, booking_confirmed.
+-->
+{{ if .Site.Params.gtm_id }}
+<script>
+// Utility: push to dataLayer
+function trackEvent(eventName, params) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({ event: eventName }, params));
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // -- Phone link clicks -------------------------------------------------
+  document.querySelectorAll('a[href^="tel:"], [data-track="phone-click"]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var location = el.dataset.location || 'unknown';
+      trackEvent('phone_call_click', {
+        phone_location: location,       // 'rahway' | 'fairlawn' | 'header' | 'footer'
+        phone_number: el.textContent.trim()
+      });
+    });
+  });
+
+  // -- Book Now / CTA clicks ---------------------------------------------
+  document.querySelectorAll('[data-track="book-now"]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      trackEvent('generate_lead', {
+        lead_source: el.dataset.source || 'cta_button',
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // -- Cal.com booking confirmed (native GTM app fires bookingSuccessfulV2)
+  // GTM Custom Event trigger listens for 'bookingSuccessfulV2' automatically.
+  // No additional JS needed here — Cal.com pushes to dataLayer natively.
+
+});
+</script>
+{{ end }}

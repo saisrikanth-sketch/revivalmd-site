@@ -1,0 +1,49 @@
+<!-- Schema.org JSON-LD Structured Data -->
+
+{{/* Organization schema on every page */}}
+{{ partial "schema/organization.html" . }}
+
+{{/* Page-type-specific schemas */}}
+{{ if .IsHome }}
+  {{ partial "schema/local-business.html" . }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "{{ .Site.BaseURL }}",
+  "name": "{{ .Site.Title }}"
+}
+</script>
+{{ end }}
+
+{{ if eq .Type "services" }}
+  {{ partial "schema/service.html" . }}
+  {{ partial "schema/faq.html" . }}
+  {{ partial "schema/howto.html" . }}
+{{ end }}
+
+{{ if eq .Type "blog" }}
+  {{ if .IsPage }}
+    {{ partial "schema/article.html" . }}
+    {{ partial "schema/faq.html" . }}
+  {{ end }}
+{{ end }}
+
+{{ if eq .Type "about" }}
+  {{ partial "schema/person.html" . }}
+{{ end }}
+
+{{ if eq .Type "local" }}
+  {{ partial "schema/local-business.html" . }}
+  {{ partial "schema/faq.html" . }}
+{{ end }}
+
+{{/* Breadcrumbs on all non-home pages */}}
+{{ if not .IsHome }}
+  {{ partial "schema/breadcrumb.html" . }}
+{{ end }}
+
+{{/* Speakable schema for AEO */}}
+{{ if or (eq .Type "services") (eq .Type "blog") }}
+  {{ partial "schema/speakable.html" . }}
+{{ end }}

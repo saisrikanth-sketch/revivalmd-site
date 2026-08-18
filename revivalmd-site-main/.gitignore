@@ -1,0 +1,19 @@
+# Hugo
+public/
+resources/_gen/
+hugo_stats.json
+
+# Node / Tailwind
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Local Netlify folder
+.netlify

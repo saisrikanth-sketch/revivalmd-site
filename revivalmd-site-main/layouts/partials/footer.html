@@ -1,0 +1,140 @@
+<!-- Footer -->
+<footer class="bg-purple-950 text-white/80">
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand Column -->
+      <div class="lg:col-span-1">
+        <picture>
+          <source srcset="/images/logo-footer.webp" type="image/webp">
+          <img src="/images/logo-footer.png" alt="RevivalMD Aesthetic Clinic" class="h-32 w-auto mb-4" width="133" height="128">
+        </picture>
+        <p class="text-sm text-white/60 leading-relaxed mt-4">
+          {{ .Site.Params.tagline }}
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-gold-400 font-heading text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}" class="text-sm text-white/70 hover:text-gold-400 transition-colors duration-200">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+          <li>
+            <a href="/membership/" class="text-sm text-white/70 hover:text-gold-400 transition-colors duration-200">
+              Membership
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Rahway Location -->
+      <div>
+        <h3 class="text-gold-400 font-heading text-lg font-semibold mb-4">Rahway Location</h3>
+        <address class="not-italic space-y-2 text-sm">
+          <p class="text-white/70">{{ .Site.Params.address_rahway }}</p>
+          <p>
+            <a href="tel:{{ .Site.Params.phone_rahway }}" class="text-white/70 hover:text-gold-400 transition-colors">
+              {{ .Site.Params.phone_rahway }}
+            </a>
+          </p>
+          {{ with .Site.Params.hours_weekdays }}
+          <p class="text-white/50 text-xs pt-1">{{ . }}</p>
+          {{ end }}
+          {{ with .Site.Params.hours_saturday }}
+          <p class="text-white/50 text-xs">{{ . }}</p>
+          {{ end }}
+          {{ with .Site.Params.hours_sunday }}
+          <p class="text-white/50 text-xs">{{ . }}</p>
+          {{ end }}
+          <p class="pt-1">
+            <a href="{{ .Site.Params.google_maps_rahway }}" target="_blank" rel="noopener"
+               class="text-gold-400/80 hover:text-gold-300 text-xs uppercase tracking-wider font-medium">
+              Get Directions &rarr;
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Fair Lawn Location -->
+      <div>
+        <h3 class="text-gold-400 font-heading text-lg font-semibold mb-4">Fair Lawn Location</h3>
+        <address class="not-italic space-y-2 text-sm">
+          <p class="text-white/70">{{ .Site.Params.address_fairlawn }}</p>
+          <p>
+            <a href="tel:{{ .Site.Params.phone_fairlawn }}" class="text-white/70 hover:text-gold-400 transition-colors">
+              {{ .Site.Params.phone_fairlawn }}
+            </a>
+          </p>
+          {{ with .Site.Params.hours_weekdays }}
+          <p class="text-white/50 text-xs pt-1">{{ . }}</p>
+          {{ end }}
+          {{ with .Site.Params.hours_saturday }}
+          <p class="text-white/50 text-xs">{{ . }}</p>
+          {{ end }}
+          {{ with .Site.Params.hours_sunday }}
+          <p class="text-white/50 text-xs">{{ . }}</p>
+          {{ end }}
+          <p class="pt-1">
+            <a href="{{ .Site.Params.google_maps_fairlawn }}" target="_blank" rel="noopener"
+               class="text-gold-400/80 hover:text-gold-300 text-xs uppercase tracking-wider font-medium">
+              Get Directions &rarr;
+            </a>
+          </p>
+        </address>
+      </div>
+    </div>
+
+    <!-- Service Areas -->
+    <div class="mt-12 pt-8 border-t border-purple-800/30">
+      <h4 class="font-heading text-sm font-semibold text-white uppercase tracking-wider mb-4">Service Areas</h4>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-x-6 gap-y-2 text-sm">
+        <a href="/best-aesthetic-service-near-edison-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Edison</a>
+        <a href="/best-aesthetic-service-near-woodbridge-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Woodbridge</a>
+        <a href="/best-aesthetic-service-near-clark-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Clark</a>
+        <a href="/best-aesthetic-service-near-elizabeth-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Elizabeth</a>
+        <a href="/best-aesthetic-service-near-linden-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Linden</a>
+        <a href="/best-aesthetic-service-near-colonia-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Colonia</a>
+        <a href="/best-aesthetic-service-near-metuchen-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Metuchen</a>
+        <a href="/best-aesthetic-service-near-carteret-nj/" class="text-white/50 hover:text-gold-400 transition-colors">Carteret</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-purple-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-white/70">
+        &copy; {{ now.Year }} {{ .Site.Copyright }} · Design &amp; SEO by <a href="https://siagb.com.au" target="_blank" rel="noopener" class="text-gold-400/60 hover:text-gold-400 transition-colors">SiaGB</a>
+      </p>
+      <div class="flex items-center gap-6 flex-wrap justify-center">
+        <!-- Social links (only render if URLs set in hugo.toml) -->
+        {{ with .Site.Params.instagram_url }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="RevivalMD on Instagram"
+           class="text-white/40 hover:text-gold-400 transition-colors">
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        {{ end }}
+        {{ with .Site.Params.facebook_url }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="RevivalMD on Facebook"
+           class="text-white/40 hover:text-gold-400 transition-colors">
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        {{ end }}
+        <nav class="flex gap-6" aria-label="Footer legal navigation">
+          {{ range .Site.Menus.footer }}
+          <a href="{{ .URL }}" class="text-xs text-white/70 hover:text-gold-400 transition-colors">
+            {{ .Name }}
+          </a>
+          {{ end }}
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>

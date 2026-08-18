@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-[#0d0013]">
+  <header class="mb-10">
+    <h1 class="font-heading text-4xl md:text-5xl text-white font-semibold mb-4">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="text-gray-300/70 text-lg font-light">{{ . }}</p>
+    {{ end }}
+    <div class="w-16 h-px bg-gold-400 mt-6"></div>
+  </header>
+
+  <div class="prose prose-invert prose-lg max-w-none
+              prose-headings:font-heading prose-headings:text-white
+              prose-p:text-gray-200/80
+              prose-li:text-gray-200/80
+              prose-a:text-gold-400 prose-a:no-underline hover:prose-a:text-gold-300
+              prose-strong:text-white
+              prose-blockquote:border-gold-400/40 prose-blockquote:text-gray-300/70
+              prose-h2:text-gold-400">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ if or (eq .Type "services") (eq .Type "blog") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ .Title }}",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".speakable-intro", "h1"]
+  },
+  "url": "{{ .Permalink }}"
+}
+</script>
+{{ end }}

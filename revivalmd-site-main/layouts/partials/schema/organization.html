@@ -1,0 +1,128 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "RevivalMD Aesthetic Clinic",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ .Site.BaseURL }}images/logo-header.png",
+  "image": "{{ .Site.BaseURL }}images/og-default.jpg",
+  "description": "{{ .Site.Params.description }}",
+  "telephone": "{{ .Site.Params.phone_rahway }}",
+  "priceRange": "$$",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "1531 Irving St",
+      "addressLocality": "Rahway",
+      "addressRegion": "NJ",
+      "postalCode": "07065",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "11-19 River Rd",
+      "addressLocality": "Fair Lawn",
+      "addressRegion": "NJ",
+      "postalCode": "07410",
+      "addressCountry": "US"
+    }
+  ],
+  "sameAs": [
+    "https://www.google.com/maps?cid=10151011004660803382",
+    "https://www.google.com/maps?cid=13296713242437947259",
+    "https://www.yelp.com/biz/revivalmd-aesthetic-clinic-rahway",
+    "https://www.instagram.com/revivalmd_aesthetics/",
+    "https://www.healthgrades.com/physician/dr-haroon-arshad-xyltfvl",
+    "https://www.zocdoc.com/doctor/haroon-arshad-md-mba-375247",
+    "https://linktr.ee/revivalmd"
+  ],
+  "medicalSpecialty": "Dermatology",
+  "founder": {
+    "@type": "Physician",
+    "name": "Haroon Arshad",
+    "jobTitle": "Medical Director",
+    "description": "Board-certified physician and aesthetic medicine specialist",
+    "url": "{{ .Site.BaseURL }}haroon-arshad-md-mba/",
+    "medicalSpecialty": "Dermatology",
+    "sameAs": [
+      "https://www.healthgrades.com/physician/dr-haroon-arshad-xyltfvl",
+      "https://www.zocdoc.com/doctor/haroon-arshad-md-mba-375247"
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "MD" },
+      { "@type": "EducationalOccupationalCredential", "credentialCategory": "MBA" }
+    ],
+    "worksFor": {
+      "@type": "MedicalBusiness",
+      "name": "RevivalMD Aesthetic Clinic",
+      "url": "{{ .Site.BaseURL }}"
+    }
+  },
+  "employee": [
+    {
+      "@type": "Physician",
+      "name": "Haroon Arshad",
+      "jobTitle": "Medical Director, MD, MBA",
+      "medicalSpecialty": "Dermatology",
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "MD" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "MBA" }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Sanna Arshad",
+      "jobTitle": "Physician Assistant, PA-C, MHA",
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "PA-C" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "MHA" }
+      ]
+    }
+  ],
+  "areaServed": [
+    "Rahway, NJ", "Fair Lawn, NJ", "Linden, NJ", "Clark, NJ",
+    "Woodbridge, NJ", "Edison, NJ", "Union, NJ", "Cranford, NJ",
+    "Paramus, NJ", "Garfield, NJ", "Clifton, NJ", "Hackensack, NJ",
+    "Union County, NJ", "Bergen County, NJ"
+  ],
+  "availableService": [
+    { "@type": "MedicalTherapy", "name": "Botox / Letybo" },
+    { "@type": "MedicalTherapy", "name": "Laser Hair Removal" },
+    { "@type": "MedicalTherapy", "name": "Microneedling" },
+    { "@type": "MedicalTherapy", "name": "RF Microneedling" },
+    { "@type": "MedicalTherapy", "name": "RF Therapy" },
+    { "@type": "MedicalTherapy", "name": "PRP Injections" },
+    { "@type": "MedicalTherapy", "name": "IV Therapy" },
+    { "@type": "MedicalTherapy", "name": "Exosome Therapy" },
+    { "@type": "MedicalTherapy", "name": "GLP-1 Weight Loss" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ .Site.Params.review_rating }}",
+    "reviewCount": "{{ .Site.Params.review_count }}",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {{ $reviews := first 3 .Site.Data.testimonials }}
+    {{ range $i, $r := $reviews }}
+    {{ if $i }},{{ end }}
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "{{ $r.name }}" },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{ $r.rating }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "reviewBody": "{{ $r.text }}",
+      "itemReviewed": {
+        "@type": "MedicalBusiness",
+        "name": "RevivalMD Aesthetic Clinic"
+      }
+    }
+    {{ end }}
+  ]
+}
+</script>

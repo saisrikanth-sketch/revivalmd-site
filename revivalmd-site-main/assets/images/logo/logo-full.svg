@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-label="RevivalMD Aesthetic Clinic">
+  <title>RevivalMD Aesthetic Clinic</title>
+  <defs>
+    <!-- Gold metallic gradient (left to right sheen) -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#A08338"/>
+      <stop offset="30%" stop-color="#C9A84C"/>
+      <stop offset="55%" stop-color="#E8D5A0"/>
+      <stop offset="75%" stop-color="#C9A84C"/>
+      <stop offset="100%" stop-color="#96792E"/>
+    </linearGradient>
+    <!-- Gold text fill -->
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A08338"/>
+      <stop offset="50%" stop-color="#C4A24A"/>
+      <stop offset="100%" stop-color="#8C6E28"/>
+    </linearGradient>
+    <!-- Deep purple feather gradient -->
+    <linearGradient id="featherPurple" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A0E4E"/>
+      <stop offset="30%" stop-color="#3B0054"/>
+      <stop offset="70%" stop-color="#2E0040"/>
+      <stop offset="100%" stop-color="#220030"/>
+    </linearGradient>
+    <!-- Feather shading (lighter edge) -->
+    <linearGradient id="featherLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A1870" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3B0054" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== RINGS ===== -->
+  <!-- Outer purple ring (slightly open/spiral at top-right where feather sits) -->
+  <path d="M 370,88 A 210,210 0 1,1 340,78"
+        fill="none" stroke="#4A1060" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Inner gold ring (spiral effect — starts lower-left, arcs around, ends upper-right) -->
+  <path d="M 105,335 A 195,195 0 1,0 355,100"
+        fill="none" stroke="url(#goldGradient)" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Gold ring tail (extending slightly beyond circle at bottom-left for spiral feel) -->
+  <path d="M 105,335 C 90,355 85,360 80,362"
+        fill="none" stroke="url(#goldGradient)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- White circle fill (interior) -->
+  <circle cx="260" cy="265" r="188" fill="#FFFFFF"/>
+
+  <!-- ===== FEATHER ===== -->
+  <!-- Large feather at upper-right, extending beyond the circle -->
+  <g>
+    <!-- Feather body — left vane (the fuller, darker side) -->
+    <path d="M 418,52
+             C 395,75 360,115 338,152
+             C 315,190 300,225 290,260
+             C 285,278 282,290 280,298
+             C 295,282 315,255 330,230
+             C 350,198 375,158 395,125
+             C 410,100 425,72 418,52Z"
+          fill="url(#featherPurple)"/>
+
+    <!-- Feather body — right vane (thinner, slightly lighter) -->
+    <path d="M 418,52
+             C 430,68 438,95 435,125
+             C 432,155 420,190 400,222
+             C 380,255 355,282 330,300
+             C 318,308 305,312 295,313
+             C 290,305 285,298 280,298
+             C 300,278 325,248 348,215
+             C 370,182 392,142 410,105
+             C 420,82 422,65 418,52Z"
+          fill="url(#featherPurple)" opacity="0.85"/>
+
+    <!-- Feather highlight overlay on right vane -->
+    <path d="M 418,52
+             C 430,68 438,95 435,125
+             C 432,155 420,190 400,222
+             C 380,255 355,282 330,300
+             C 318,308 305,312 295,313
+             C 290,305 285,298 280,298
+             C 300,278 325,248 348,215
+             C 370,182 392,142 410,105
+             C 420,82 422,65 418,52Z"
+          fill="url(#featherLight)"/>
+
+    <!-- Rachis (central spine) — gold curved line -->
+    <path d="M 418,52
+             C 410,80 390,130 368,175
+             C 345,222 320,262 295,295
+             C 288,304 283,308 280,310"
+          fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Feather barbs — left side (gold veins curving outward-left) -->
+    <path d="M 410,72 C 398,85 382,102 370,112" fill="none" stroke="url(#goldGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 400,100 C 385,115 368,132 352,148" fill="none" stroke="url(#goldGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 388,132 C 372,148 352,168 338,182" fill="none" stroke="url(#goldGradient)" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 375,162 C 358,178 338,200 325,215" fill="none" stroke="url(#goldGradient)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 358,195 C 342,212 325,232 312,248" fill="none" stroke="url(#goldGradient)" stroke-width="0.9" stroke-linecap="round" opacity="0.55"/>
+    <path d="M 340,228 C 325,245 312,260 302,272" fill="none" stroke="url(#goldGradient)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Feather barbs — right side (gold veins curving outward-right) -->
+    <path d="M 410,72 C 420,82 428,98 432,110" fill="none" stroke="url(#goldGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.75"/>
+    <path d="M 400,100 C 412,110 422,128 428,142" fill="none" stroke="url(#goldGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 388,132 C 402,142 415,162 420,178" fill="none" stroke="url(#goldGradient)" stroke-width="1.1" stroke-linecap="round" opacity="0.65"/>
+    <path d="M 375,162 C 390,172 405,192 410,210" fill="none" stroke="url(#goldGradient)" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 358,195 C 374,205 388,225 392,242" fill="none" stroke="url(#goldGradient)" stroke-width="0.9" stroke-linecap="round" opacity="0.55"/>
+    <path d="M 340,228 C 356,238 368,255 372,270" fill="none" stroke="url(#goldGradient)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+  <!-- ===== TYPOGRAPHY ===== -->
+  <!-- "Revival" — elegant serif italic -->
+  <text x="248" y="300" text-anchor="middle"
+        font-family="'Playfair Display', 'Georgia', serif" font-size="70" font-style="italic"
+        font-weight="400" fill="url(#goldText)" letter-spacing="2">
+    Revival
+  </text>
+
+  <!-- "MD" — structured, wider tracking -->
+  <text x="255" y="348" text-anchor="middle"
+        font-family="'Inter', 'Helvetica Neue', sans-serif" font-size="44" font-weight="500"
+        fill="url(#goldText)" letter-spacing="10">
+    MD
+  </text>
+</svg>

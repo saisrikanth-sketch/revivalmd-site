@@ -1,0 +1,11 @@
+<!-- Floating Book Now button (mobile only, appears on scroll) -->
+<div id="floating-cta" class="fixed bottom-6 right-6 z-30 md:hidden opacity-0 pointer-events-none transition-all duration-300">
+  <a href="{{ .Site.Params.booking_url }}"
+     data-track="book-now" data-source="floating_cta"
+     class="cta-floating flex items-center justify-center w-14 h-14 bg-gold-400 text-purple-900 rounded-full shadow-lg hover:bg-gold-300 transition-colors"
+     aria-label="Book Now">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+    </svg>
+  </a>
+</div>

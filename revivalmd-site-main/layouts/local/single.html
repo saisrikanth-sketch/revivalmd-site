@@ -1,0 +1,131 @@
+{{ define "main" }}
+
+{{ $city_slug := .Params.city }}
+{{ $service_slug := .Params.service_type }}
+
+{{/* Look up city data */}}
+{{ $city := dict }}
+{{ range .Site.Data.local_seo.cities }}
+  {{ if eq .slug $city_slug }}
+    {{ $city = . }}
+  {{ end }}
+{{ end }}
+
+{{/* Look up service data */}}
+{{ $service := dict }}
+{{ range .Site.Data.services }}
+  {{ if eq .slug $service_slug }}
+    {{ $service = . }}
+  {{ end }}
+{{ end }}
+
+<!-- Hero -->
+<section class="relative py-16 md:py-24 bg-purple-950">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/80 to-purple-950"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-gold-400/70 text-xs font-medium tracking-[0.3em] uppercase mb-4">Near {{ $city.name }}, NJ</p>
+    <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white font-semibold leading-tight mb-6">
+      {{ .Title }}
+    </h1>
+    <p class="speakable-intro max-w-2xl mx-auto text-white/50 text-base font-light leading-relaxed">
+      {{ .Description }}
+    </p>
+    <div class="mt-8">
+      <a href="{{ .Site.Params.booking_url }}"
+         class="inline-flex items-center px-8 py-3.5 bg-gold-400 text-purple-950 font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-all duration-300">
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ partial "breadcrumbs.html" . }}
+
+{{ with $service.definition }}
+<section class="py-10 bg-[#0d0013] border-b border-white/[0.06]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-gray-200/80 text-base leading-relaxed speakable-intro">{{ . | markdownify }}</p>
+  </div>
+</section>
+{{ end }}
+
+<!-- Content -->
+<section class="py-16 md:py-24 bg-[#0d0013]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="prose prose-invert prose-lg max-w-none
+                prose-headings:font-heading prose-headings:text-white
+                prose-p:text-gray-200/80
+                prose-li:text-gray-200/80
+                prose-a:text-gold-400 prose-a:no-underline hover:prose-a:text-gold-300
+                prose-strong:text-white
+                prose-h2:text-gold-400">
+      {{ .Content }}
+    </div>
+
+    <!-- Link to main service page (internal linking for SEO) -->
+    {{ with $service }}
+    <div class="mt-10 p-5 rounded-lg border border-gold-400/20 bg-gold-400/[0.04] flex items-center justify-between gap-4 flex-wrap">
+      <p class="text-white/60 text-sm">
+        Learn everything about <strong class="text-white/80">{{ .name }}</strong> — how it works, what to expect, and who it's right for.
+      </p>
+      <a href="{{ .url }}"
+         class="inline-flex items-center gap-2 text-gold-400 text-xs font-semibold tracking-wider uppercase hover:text-gold-300 transition-colors whitespace-nowrap">
+        Full Treatment Guide
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+    {{ end }}
+
+    <!-- Nearest location card -->
+    <div class="mt-12 p-8 bg-white/[0.03] rounded-lg border border-white/[0.08]">
+      <h2 class="font-heading text-2xl text-white font-semibold mb-4">
+        Visit Our {{ $city.nearest_location }} Location
+      </h2>
+      <p class="text-gray-300/60 text-sm mb-4">
+        Just {{ with $city }}{{ if eq .nearest_location "Rahway" }}{{ .distance_rahway }}{{ else }}{{ .distance_fairlawn }}{{ end }}{{ end }} from {{ $city.name }}.
+      </p>
+      {{ range .Site.Data.locations }}
+        {{ if eq .name $city.nearest_location }}
+        <div class="space-y-2 mb-6">
+          <p class="text-white text-sm font-medium">{{ .address }}, {{ .city }}, {{ .state }} {{ .zip }}</p>
+          {{ $key := printf "phone_%s" (lower (replace .name " " "")) }}
+          {{ $phone := index $.Site.Params $key }}
+          {{ $tel := replaceRE "[^0-9]" "" $phone }}
+          <p><a href="tel:{{ $tel }}" class="text-gold-400 hover:text-gold-300 text-sm">{{ $phone }}</a></p>
+        </div>
+        <div class="flex gap-3">
+          <a href="{{ .maps_url }}" target="_blank" rel="noopener"
+             class="inline-flex items-center px-5 py-2.5 bg-gold-400 text-purple-950 text-xs font-semibold tracking-wider uppercase rounded-sm hover:bg-gold-300 transition-colors">
+            Get Directions
+          </a>
+          <a href="{{ $.Site.Params.booking_url }}"
+             class="inline-flex items-center px-5 py-2.5 border border-gold-400/30 text-gold-400 text-xs font-semibold tracking-wider uppercase rounded-sm hover:border-gold-400 hover:text-gold-300 transition-colors">
+            Book Online
+          </a>
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+{{ partial "faq-section.html" . }}
+
+<!-- CTA -->
+<section class="py-16 bg-purple-950">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-heading text-3xl text-white font-semibold mb-4">
+      Serving {{ $city.name }} &amp; Surrounding Areas
+    </h2>
+    <p class="text-white/70 text-sm mb-8">
+      Schedule your consultation today at our {{ $city.nearest_location }} location.
+    </p>
+    <a href="{{ .Site.Params.booking_url }}"
+       class="inline-flex items-center px-8 py-3.5 bg-gold-400 text-purple-950 font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-all duration-300">
+      Book Now
+    </a>
+  </div>
+</section>
+
+{{ end }}

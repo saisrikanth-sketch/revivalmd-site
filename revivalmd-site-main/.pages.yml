@@ -1,0 +1,271 @@
+media:
+  input: static/images
+  output: /images
+
+content:
+  - name: services
+    label: Service Pages
+    type: collection
+    path: content/services
+    view:
+      fields: [title, category]
+      primary: title
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+        required: true
+      - name: description
+        label: Meta Description (Google snippet)
+        type: text
+      - name: what_is
+        label: "Section: What is this treatment"
+        type: text
+      - name: what_to_expect
+        label: "Section: What to expect"
+        type: text
+      - name: ideal_candidates
+        label: "Section: Ideal candidates"
+        type: text
+      - name: faq
+        label: FAQ
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+      - name: stats
+        label: Quick Stats
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Value, type: string }
+          - { name: unit, label: Unit, type: string }
+          - { name: label, label: Label, type: string }
+      - name: benefits
+        label: Benefits
+        type: object
+        list: true
+        fields:
+          - { name: icon, label: Icon (do not change), type: string }
+          - { name: title, label: Title, type: string }
+          - { name: desc, label: Description, type: text }
+      - name: steps
+        label: Treatment Steps
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: desc, label: Description, type: text }
+      - name: timeline
+        label: Results Timeline
+        type: object
+        list: true
+        fields:
+          - { name: when, label: When, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: desc, label: Description, type: text }
+      - name: candidate_intro
+        label: Candidate Intro
+        type: text
+      - name: candidate_checklist_heading
+        label: Candidate Checklist Heading
+        type: string
+      - name: candidate_checklist
+        label: Candidate Checklist
+        type: string
+        list: true
+      - name: candidate_criteria
+        label: Candidate Criteria
+        type: object
+        list: true
+        fields:
+          - { name: type, label: Type (yes/no), type: string }
+          - { name: label, label: Label, type: string }
+          - { name: desc, label: Description, type: text }
+      - name: hero_image
+        label: Hero Image
+        type: image
+      - name: consent_forms
+        label: Consent Forms
+        type: object
+        list: true
+        readonly: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: url, label: URL, type: string }
+      - name: seo_title
+        label: SEO Title (locked)
+        type: string
+        readonly: true
+        description: Managed as part of the site's search rankings. Do not change.
+      - name: url
+        label: Page URL (locked)
+        type: string
+        readonly: true
+        description: Changing this breaks Google rankings and existing links.
+      - name: aliases
+        label: Redirects (locked)
+        type: string
+        list: true
+        readonly: true
+      - name: category
+        label: Category (locked)
+        type: string
+        readonly: true
+      - name: related_services
+        label: Related Services (locked)
+        type: string
+        list: true
+        readonly: true
+      - name: draft
+        label: Draft (locked)
+        type: boolean
+        readonly: true
+      - { name: type, label: Type (system), type: string, readonly: true }
+      - { name: layout, label: Layout (system), type: string, readonly: true }
+      - { name: schema_service, label: Schema flag (system), type: boolean, readonly: true }
+      - { name: schema_procedure_type, label: Schema type (system), type: string, readonly: true }
+      - { name: body_location, label: Schema body location (system), type: string, readonly: true }
+      - { name: hero_image_position, label: Hero position (system), type: string, readonly: true }
+      - { name: hero_height, label: Hero height (system), type: string, readonly: true }
+      - { name: trust_bar_bottom, label: Trust bar flag (system), type: boolean, readonly: true }
+      - { name: splendor_x, label: Splendor X flag (system), type: boolean, readonly: true }
+
+  - name: blog
+    label: Blog Posts
+    type: collection
+    path: content/blog
+    filename: "{fields.slug}.md"
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date, title]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Meta Description (Google snippet)
+        type: text
+      - name: body
+        label: Post Content
+        type: rich-text
+      - name: image
+        label: Featured Image
+        type: image
+      - name: date
+        label: Publish Date
+        type: date
+      - name: lastmod
+        label: Last Updated
+        type: date
+      - name: author
+        label: Author
+        type: string
+      - name: reviewedBy
+        label: Reviewed By
+        type: string
+      - name: author_info
+        label: Author Info
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: credentials, label: Credentials, type: string }
+          - { name: role, label: Role, type: string }
+      - name: categories
+        label: Categories
+        type: string
+        list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: faq
+        label: FAQ
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+      - name: draft
+        label: Draft (hides the post when checked)
+        type: boolean
+      - name: slug
+        label: URL Slug (locked)
+        type: string
+        readonly: true
+        description: Changing this breaks Google rankings and existing links.
+      - { name: primary_keyword, label: Primary Keyword (locked), type: string, readonly: true }
+      - { name: type, label: Type (system), type: string, readonly: true }
+      - { name: url, label: URL (system), type: string, readonly: true }
+      - { name: layout, label: Layout (system), type: string, readonly: true }
+
+  - name: local
+    label: Local Area Pages
+    type: collection
+    path: content/local
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Meta Description (Google snippet)
+        type: text
+      - name: body
+        label: Page Content
+        type: rich-text
+      - name: faq
+        label: FAQ
+        type: object
+        list: true
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer, label: Answer, type: text }
+      - name: url
+        label: Page URL (locked)
+        type: string
+        readonly: true
+        description: Changing this breaks Google rankings and existing links.
+      - { name: city, label: City (system), type: string, readonly: true }
+      - { name: service_type, label: Service Type (system), type: string, readonly: true }
+      - { name: type, label: Type (system), type: string, readonly: true }
+      - { name: layout, label: Layout (system), type: string, readonly: true }
+      - { name: noindex, label: Noindex (system), type: boolean, readonly: true }
+
+  - name: about
+    label: About & Team
+    type: collection
+    path: content/about
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Meta Description (Google snippet)
+        type: text
+      - name: body
+        label: Page Content
+        type: rich-text
+      - name: author
+        label: Author
+        type: string
+      - name: lastmod
+        label: Last Updated
+        type: date
+      - name: url
+        label: Page URL (locked)
+        type: string
+        readonly: true
+        description: Changing this breaks Google rankings and existing links.
+      - { name: type, label: Type (system), type: string, readonly: true }
+      - { name: layout, label: Layout (system), type: string, readonly: true }

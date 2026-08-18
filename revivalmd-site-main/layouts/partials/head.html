@@ -1,0 +1,95 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Title -->
+<title>{{ if and .IsHome .Title }}{{ .Title }}{{ else if .IsHome }}{{ .Site.Title }}{{ else if .Params.seo_title }}{{ .Params.seo_title }}{{ else }}{{ .Title }} | RevivalMD Aesthetic Clinic{{ end }}</title>
+
+<!-- Meta Description -->
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Preload LCP hero image (homepage only) -->
+{{ if .IsHome }}
+<link rel="preload" as="image" type="image/webp" href="/images/hero-bg.webp">
+{{ end }}
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Google Fonts: non-render-blocking with fetchpriority -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"></noscript>
+
+<!-- Tailwind CSS -->
+{{ with resources.Get "css/main.css" }}
+  {{ $css := . | css.TailwindCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ end }}
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.seo_title }}{{ .Params.seo_title }}{{ else }}{{ .Title }} | RevivalMD{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="RevivalMD Aesthetic Clinic">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.og_image | absURL }}{{ end }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.seo_title }}{{ .Params.seo_title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.og_image | absURL }}{{ end }}">
+
+<!-- RSS -->
+{{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+<!-- Robots -->
+{{ with .Params.noindex }}<meta name="robots" content="noindex, follow">{{ end }}
+
+<!-- Google Search Console Verification -->
+{{ with .Site.Params.gsc_verification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
+
+<!-- dataLayer + Consent Mode v2 (must load before GTM) -->
+{{ if .Site.Params.gtm_id }}
+<script>
+  // Initialize dataLayer
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Consent Mode v2 defaults — denied until user accepts (NJDPA compliance)
+  gtag('consent', 'default', {
+    'ad_storage':             'denied',
+    'ad_user_data':           'denied',
+    'ad_personalization':     'denied',
+    'analytics_storage':      'denied',
+    'functionality_storage':  'granted',
+    'personalization_storage':'denied',
+    'security_storage':       'granted',
+    'wait_for_update':        500
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ .Site.Params.gtm_id }}');</script>
+<!-- End Google Tag Manager -->
+{{ end }}

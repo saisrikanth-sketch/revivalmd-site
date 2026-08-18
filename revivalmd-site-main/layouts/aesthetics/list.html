@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="relative py-20 md:py-28 bg-purple-950 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-purple-950 via-purple-900/80 to-purple-950"></div>
+  <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-gold-400/[0.03] rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-gold-400/70 text-xs font-medium tracking-[0.3em] uppercase mb-4">RevivalMD Aesthetic Clinic</p>
+    <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl text-white font-semibold leading-tight mb-6">
+      Our Aesthetic <span class="italic text-gold-400 font-normal">Services</span>
+    </h1>
+    <div class="w-16 h-px bg-gold-400/40 mx-auto mb-6"></div>
+    <p class="max-w-2xl mx-auto text-white/50 text-base sm:text-lg font-light leading-relaxed">
+      Discover our comprehensive menu of physician-led aesthetic treatments, each tailored to your unique goals and designed to enhance your natural beauty.
+    </p>
+  </div>
+</section>
+
+<!-- Browse by Category -->
+<section class="pt-16 pb-4 bg-[#0d0013]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p style="color:#C9A84C;font-size:0.65rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.75rem;">Browse by Category</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-12">
+      <a href="/injectables/" style="display:block;padding:1.1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.18);border-radius:0.5rem;text-decoration:none;transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)'">
+        <div style="color:#C9A84C;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.25rem;">Injectables</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Botox, Fillers, PRP</div>
+      </a>
+      <a href="/skin-treatments/" style="display:block;padding:1.1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.18);border-radius:0.5rem;text-decoration:none;transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)'">
+        <div style="color:#C9A84C;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.25rem;">Skin Treatments</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Microneedling, IPL, RF</div>
+      </a>
+      <a href="/body-treatments/" style="display:block;padding:1.1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.18);border-radius:0.5rem;text-decoration:none;transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)'">
+        <div style="color:#C9A84C;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.25rem;">Body Treatments</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:0.75rem;">Laser Hair, IV, RF Therapy</div>
+      </a>
+      <a href="/weight-loss/" style="display:block;padding:1.1rem 1.25rem;background:rgba(255,255,255,0.025);border:1px solid rgba(201,168,76,0.18);border-radius:0.5rem;text-decoration:none;transition:border-color 0.25s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.18)'">
+        <div style="color:#C9A84C;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.25rem;">Weight Loss</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:0.75rem;">GLP-1, Medical Weight Loss</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="py-20 md:py-28 bg-[#0d0013]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range site.Data.services }}
+        {{ partial "service-card" (dict "service" .) }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 md:py-20 bg-purple-950">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-heading text-3xl md:text-4xl text-white font-semibold mb-4">
+      Not Sure Which Treatment <span class="italic text-gold-400 font-normal">Is Right for You?</span>
+    </h2>
+    <p class="text-white/70 text-base font-light mb-8">
+      Book a consultation and let our expert team create a personalized treatment plan.
+    </p>
+    <a href="{{ .Site.Params.booking_url }}"
+       class="inline-flex items-center px-8 py-3.5 bg-gold-400 text-purple-950 font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-all duration-300">
+      Book Consultation
+    </a>
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#F0D875"/>
+      <stop offset="100%" stop-color="#C9A84C"/>
+    </linearGradient>
+    <linearGradient id="purp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C1A6E"/>
+      <stop offset="100%" stop-color="#3B0054"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark purple circle background -->
+  <circle cx="256" cy="256" r="256" fill="#1a0025"/>
+  <!-- Gold arc sweep -->
+  <path d="M 130,380 A 180,180 0 1,1 380,150" fill="none" stroke="url(#gold)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M 130,380 C 115,398 108,405 102,408" fill="none" stroke="url(#gold)" stroke-width="16" stroke-linecap="round"/>
+  <!-- Feather quill -->
+  <path d="M 390,72 C 365,100 328,145 305,185 C 280,228 262,268 252,305 C 248,320 245,332 243,340 C 260,322 282,292 300,265 C 322,230 350,185 372,148 C 388,120 398,90 390,72Z" fill="url(#purp)"/>
+  <path d="M 390,72 C 404,90 412,118 408,150 C 404,182 390,220 368,255 C 346,290 318,318 292,338 C 278,348 264,352 254,354 C 250,345 246,338 243,340 C 265,318 292,285 316,248 C 340,210 364,165 382,125 C 393,100 396,82 390,72Z" fill="url(#purp)" opacity="0.85"/>
+  <!-- Feather spine - gold highlight -->
+  <path d="M 390,72 C 380,105 358,158 335,208 C 310,260 282,305 254,340" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+</svg>

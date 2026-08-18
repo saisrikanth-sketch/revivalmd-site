@@ -1,0 +1,386 @@
+{{ define "main" }}
+
+<!-- ============================================
+     HERO — Full-width dark dramatic hero
+     ============================================ -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-purple-950">
+  <!-- Background image + dark overlay -->
+  <div class="absolute inset-0">
+    <!-- Stock photo background -->
+    <picture>
+      <source srcset="/images/hero-bg.webp" type="image/webp">
+      <img src="/images/hero-bg-opt.jpg" alt="Medical spa in Rahway NJ" class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" width="1920" height="1280">
+    </picture>
+    <!-- Dark purple overlay — very heavy so photo is just a subtle texture -->
+    <div class="absolute inset-0" style="background-color: rgba(13, 0, 19, 0.80);"></div>
+    <!-- Subtle gold glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-400/[0.03] rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Overline -->
+    <p class="text-gold-400/70 text-xs sm:text-sm font-body font-medium tracking-[0.3em] uppercase mb-6"
+       style="animation-delay: 0.2s;">
+      Rahway &amp; Fair Lawn, New Jersey
+    </p>
+
+    <!-- Main headline -->
+    <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-white leading-[0.95] tracking-tight mb-8"
+        style="animation-delay: 0.4s;">
+      Revive Your Beauty.<br>
+      <span class="text-gold-gradient italic font-normal">Renew Your Confidence.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="max-w-2xl mx-auto text-white/65 text-base sm:text-lg font-light leading-relaxed mb-10"
+       style="animation-delay: 0.6s;">
+      Looking for a medical spa Rahway NJ patients actually trust? RevivalMD is physician-led, offering Botox, laser hair removal, facials, microneedling, PRP, IV therapy, weight loss programs, and more. We also serve Fair Lawn. Personalized care, real results, and same-day appointments are usually available.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4" style="animation-delay: 0.8s;">
+      <a href="{{ .Site.Params.booking_url }}"
+         class="group inline-flex items-center px-8 py-4 bg-gold-400 text-purple-950 font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,76,0.3)]">
+        Book Your Consultation
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a href="/aesthetics/"
+         class="inline-flex items-center px-8 py-4 border border-white/20 text-white/80 text-sm tracking-widest uppercase rounded-sm hover:border-gold-400/50 hover:text-gold-400 transition-all duration-300">
+        Explore Services
+      </a>
+    </div>
+
+    <!-- Trust bar — crawlable rating text for SEO -->
+    <div class="flex items-center justify-center gap-2 mt-8 text-white/50 text-sm" style="animation-delay: 1s;">
+      <div class="flex gap-0.5">
+        {{ range seq 5 }}
+        <svg class="w-3.5 h-3.5 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+        </svg>
+        {{ end }}
+      </div>
+      <span>Rated {{ .Site.Params.review_rating }} out of 5 · {{ .Site.Params.review_count }}+ patient reviews</span>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
+    <span class="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-gold-400/50 to-transparent animate-pulse"></div>
+  </div>
+</section>
+
+<!-- ============================================
+     SERVICES — Dark luxury grid
+     ============================================ -->
+<section class="relative py-16 md:py-20 bg-purple-950 overflow-hidden">
+  <!-- Atmospheric glow -->
+  <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold-400/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Top gold accent line -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="mb-8">
+      <p class="text-gold-400 text-xs font-medium tracking-[0.3em] uppercase mb-3">Our Expertise</p>
+      <h2 class="font-heading text-4xl md:text-5xl text-white font-semibold leading-tight">
+        Aesthetic <span class="italic font-normal text-gold-400">Services</span>
+      </h2>
+      <p class="text-white/50 text-sm mt-3 max-w-lg">
+        No two faces are the same, so no two treatments should be either.
+      </p>
+    </div>
+
+    <!-- Services grid — premium icon cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {{ range .Site.Data.services }}
+        {{ partial "service-card" (dict "service" .) }}
+      {{ end }}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.06]">
+      <p class="text-white/70 text-sm">Not sure which treatment is right for you?</p>
+      <a href="{{ .Site.Params.booking_url }}"
+         class="inline-flex items-center px-6 py-2.5 bg-gold-400 text-purple-950 text-xs font-semibold tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-colors">
+        Book Consultation
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ABOUT — Team introduction (purple-900 for contrast)
+     ============================================ -->
+<section class="relative py-16 md:py-20 bg-purple-900 overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Text content -->
+      <div>
+        <p class="text-gold-400 text-xs font-medium tracking-[0.3em] uppercase mb-4">About Revival MD</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-white font-semibold leading-tight mb-6">
+          Where Medical Expertise<br>
+          <span class="italic text-gold-400 font-normal">Meets Artistry</span>
+        </h2>
+        <div class="w-16 h-px bg-gold-400/40 mb-6"></div>
+        <p class="text-white/75 text-base font-normal leading-relaxed mb-4">
+          Led by Dr. M. Miz. Haque, MD, MHA, Dr. Haroon Arshad, MD, MBA, and Sanna Arshad, PA-C, MHA, RevivalMD combines medical expertise with a genuine eye for aesthetics. Every treatment plan is built around your skin, your features, and what you actually want to change. Not someone else's ideal. Yours.
+        </p>
+        <p class="text-white/75 text-base font-normal leading-relaxed mb-4">
+          We're a physician-led aesthetic clinic with two med spa locations in New Jersey, one in Rahway (Union County) and one in Fair Lawn (Bergen County). So whether you're coming from Clark, Westfield, Scotch Plains, or anywhere nearby, you've got a board-certified team close to home.
+        </p>
+        <p class="text-white/75 text-base font-normal leading-relaxed mb-4">
+          Your first visit starts with a real conversation, not a sales pitch. What's bothering you? What have you tried before? What kind of results are you actually looking for? We'll figure out the right treatment together. No pressure, no upselling.
+        </p>
+        <p class="text-white/75 text-base font-normal leading-relaxed mb-6">
+          As a medical spa Rahway NJ families keep coming back to, we offer cosmetic injectables like Botox, advanced skin care treatments including facial rejuvenation and microneedling, laser hair removal (we're one of the few Splendor X providers in New Jersey), PRP, RF skin tightening, IV wellness therapy, exosome therapy, and medically supervised weight loss. But here's what matters most: every procedure is performed or directly supervised by our medical team. That's not a tagline. It's how we've always done it.
+        </p>
+        <a href="/about/"
+           class="inline-flex items-center text-gold-400 hover:text-gold-300 text-sm font-medium tracking-wider uppercase transition-colors group">
+          Meet Our Team
+          <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Team cards -->
+      <div class="space-y-4">
+        {{ range .Site.Data.team }}
+        <div class="group flex items-start gap-5 p-5 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-gold-400/20 transition-all duration-300">
+          <div class="w-14 h-14 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+            <span class="font-heading text-lg text-gold-400">{{ index (split .name " ") 0 | truncate 1 "" }}{{ index (split .name " ") 1 | truncate 1 "" }}</span>
+          </div>
+          <div>
+            <h3 class="font-heading text-lg text-white font-semibold">
+              {{ .name }}, <span class="text-gold-400 font-normal">{{ .credentials }}</span>
+            </h3>
+            <p class="text-gold-300 text-xs tracking-wider uppercase mt-0.5 mb-2">{{ .title }}</p>
+            <p class="text-white/70 text-sm font-normal leading-relaxed">{{ .short_bio }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     TESTIMONIALS — Patient reviews (purple-950 for contrast from purple-900 above)
+     ============================================ -->
+<section class="relative py-16 md:py-20 bg-purple-950 overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-10">
+      <p class="text-gold-400 text-xs font-medium tracking-[0.3em] uppercase mb-4">Patient Experiences</p>
+      <h2 class="font-heading text-4xl md:text-5xl text-white font-semibold">
+        Real Results, <span class="italic font-normal text-gold-400">Real Confidence</span>
+      </h2>
+    </div>
+
+    <!-- Testimonial grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Site.Data.testimonials }}
+      <div class="testimonial-card bg-white/[0.04] border border-white/[0.08] p-6 rounded-lg hover:border-gold-400/20 transition-all duration-300">
+        <!-- Stars -->
+        <div class="flex gap-0.5 mb-3">
+          {{ range seq .rating }}
+          <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          {{ end }}
+        </div>
+
+        <!-- Quote -->
+        <blockquote class="text-white/65 text-sm leading-relaxed mb-5 font-light">
+          &ldquo;{{ .text }}&rdquo;
+        </blockquote>
+
+        <!-- Attribution -->
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-medium text-white/80 text-sm">{{ .name }}</p>
+            <p class="text-white/60 text-xs">{{ .location }}</p>
+          </div>
+          <span class="text-[10px] tracking-wider uppercase text-gold-300 font-medium">{{ .service }}</span>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Review CTA -->
+    <div class="text-center mt-12">
+      <a href="/testimonials/"
+         class="inline-flex items-center text-gold-400 hover:text-gold-300 text-sm font-medium tracking-wider uppercase transition-colors group">
+        Read More Reviews
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     LOCATIONS — Two NJ locations side-by-side
+     ============================================ -->
+<section class="relative py-16 md:py-20 bg-purple-950">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-10">
+      <p class="text-gold-400/70 text-xs font-medium tracking-[0.3em] uppercase mb-4">Visit Us</p>
+      <h2 class="font-heading text-4xl md:text-5xl text-white font-semibold">
+        Two Convenient <span class="italic font-normal text-gold-400">Locations</span>
+      </h2>
+    </div>
+
+    <!-- Location cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ range .Site.Data.locations }}
+      <div class="group relative p-8 md:p-10 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-gold-400/20 transition-all duration-300">
+        <!-- Location name -->
+        <h3 class="font-heading text-2xl md:text-3xl text-white font-semibold mb-1">
+          {{ .name }}
+        </h3>
+        <p class="text-gold-400 text-xs tracking-wider uppercase mb-6">New Jersey</p>
+
+        <!-- Details -->
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <p class="text-white/60 text-sm">{{ .address }}<br>{{ .city }}, {{ .state }} {{ .zip }}</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gold-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            {{ $key := printf "phone_%s" (lower (replace .name " " "")) }}
+            {{ $phone := index $.Site.Params $key }}
+            {{ $tel := replaceRE "[^0-9]" "" $phone }}
+            <a href="tel:{{ $tel }}" class="text-white/60 text-sm hover:text-gold-400 transition-colors">{{ $phone }}</a>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap gap-3">
+          <a href="{{ .maps_url }}" target="_blank" rel="noopener"
+             class="inline-flex items-center px-5 py-2.5 bg-gold-400/10 text-gold-400 text-xs font-medium tracking-wider uppercase rounded-sm hover:bg-gold-400/20 transition-colors">
+            Get Directions
+          </a>
+          <a href="tel:{{ $tel }}"
+             class="inline-flex items-center px-5 py-2.5 border border-white/10 text-white/60 text-xs font-medium tracking-wider uppercase rounded-sm hover:border-gold-400/30 hover:text-gold-400 transition-colors">
+            Call Now
+          </a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     BLOG — Latest 3 posts
+     ============================================ -->
+<section class="relative py-16 md:py-20 bg-purple-900 overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+      <div>
+        <p class="text-gold-400 text-xs font-medium tracking-[0.3em] uppercase mb-4">From Our Blog</p>
+        <h2 class="font-heading text-4xl md:text-5xl text-white font-semibold">
+          Expert <span class="italic font-normal text-gold-400">Insights</span>
+        </h2>
+      </div>
+      <a href="/blog/"
+         class="mt-4 md:mt-0 inline-flex items-center text-gold-400 hover:text-gold-300 text-sm font-medium tracking-wider uppercase transition-colors group">
+        All Articles
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Blog posts grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {{ range first 3 (where .Site.RegularPages "Type" "blog") }}
+      <a href="{{ .RelPermalink }}" class="group block p-6 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-gold-400/20 hover:bg-white/[0.06] transition-all duration-300">
+        <!-- Category + Date -->
+        <div class="flex items-center justify-between mb-4">
+          {{ with .Params.categories }}
+          <span class="text-gold-300 text-[10px] tracking-[0.2em] uppercase font-medium">{{ index . 0 }}</span>
+          {{ end }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-white/70 text-[10px] tracking-wider uppercase">
+            {{ .Date.Format "Jan 2, 2006" }}
+          </time>
+        </div>
+
+        <!-- Title -->
+        <h3 class="font-heading text-lg text-white font-semibold mb-3 group-hover:text-gold-400 transition-colors leading-snug">
+          {{ .Title }}
+        </h3>
+
+        <!-- Excerpt -->
+        <div class="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+          {{ .Summary | plainify | truncate 150 }}
+        </div>
+
+        <!-- Read more -->
+        <span class="inline-flex items-center text-gold-400 text-xs font-medium tracking-wider uppercase group-hover:text-gold-400 transition-colors">
+          Read Article
+          <svg class="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FINAL CTA — Full-width booking banner
+     ============================================ -->
+<section class="relative py-20 md:py-28 overflow-hidden bg-purple-950">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/[0.04] rounded-full blur-3xl"></div>
+  <!-- Decorative gold lines -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/30 to-transparent"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-gold-400/70 text-xs font-medium tracking-[0.3em] uppercase mb-6">Start Your Transformation</p>
+    <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-white font-semibold leading-tight mb-6">
+      Your Journey to<br>
+      <span class="italic text-gold-400 font-normal">Radiant Confidence</span><br>
+      Begins Here
+    </h2>
+    <p class="text-white/75 text-base font-normal leading-relaxed mb-10 max-w-xl mx-auto">
+      Whether you're looking for facial treatments, skin tightening, or something you haven't quite figured out yet, your next step is the same. Book a consultation and let's talk about what you want to change.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="{{ .Site.Params.booking_url }}"
+         class="group inline-flex items-center px-10 py-4 bg-gold-400 text-purple-950 font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-300 transition-all duration-300 hover:shadow-[0_0_50px_rgba(201,168,76,0.25)]">
+        Book Now
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a href="tel:{{ .Site.Params.phone_rahway }}"
+         class="inline-flex items-center px-10 py-4 border border-gold-400/30 text-gold-400 text-sm tracking-widest uppercase rounded-sm hover:bg-gold-400/10 transition-all duration-300">
+        Call {{ .Site.Params.phone_rahway }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

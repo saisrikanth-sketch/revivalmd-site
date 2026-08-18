@@ -1,0 +1,33 @@
+{{ if eq .Type "about" }}{{ if ne .File.LogicalName "_index.md" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "url": "{{ .Permalink }}",
+  "worksFor": {
+    "@type": "MedicalBusiness",
+    "name": "RevivalMD Aesthetic Clinic",
+    "url": "https://revivalmd.com/"
+  },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "1531 Irving St",
+      "addressLocality": "Rahway",
+      "addressRegion": "NJ",
+      "postalCode": "07065"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "11-19 River Rd",
+      "addressLocality": "Fair Lawn",
+      "addressRegion": "NJ",
+      "postalCode": "07410"
+    }
+  ],
+  "medicalSpecialty": "https://schema.org/PlasticSurgery"
+}
+</script>
+{{ end }}{{ end }}
