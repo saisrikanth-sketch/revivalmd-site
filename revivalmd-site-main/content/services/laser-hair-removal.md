@@ -2,7 +2,7 @@
 title: Laser Hair Removal
 description: Looking for laser hair removal Rahway NJ patients trust? RevivalMD
   uses the Lumenis Splendor X, a dual-wavelength laser safe for all skin types.
-  Serving at Fair Lawn, NJ. Book today.
+  Experience  Lumenis Splendor X at Fair Lawn, NJ. Book today.
 what_is: >
   Looking for laser hair removal Rahway NJ patients keep coming back to? Here's
   what makes us different. **Laser hair removal** is an FDA-cleared procedure
